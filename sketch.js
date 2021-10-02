@@ -19,20 +19,18 @@ function setup() {
 
   engine = Engine.create();
   world = engine.world;
- //create a object for ball
-  ball = new Ball(width / 2 + 80, height / 2 - 80, 80, 80);
- //create a object for blower
-  blower = new Blower(width / 2 - 50, height / 2 + 50, 150, 20);
- //create a object for blowerMouth
-  blowerMouth = new BlowerMouth(width / 2 + 70, height / 2 + 20, 100, 90);
+//create a object for ball
+  ball = new Ball(width/2+80, height/2-80, 80, 80);
+//create a object for blower
+  blower = new Blower(width / 2-50, height/2+50, 150, 20);
+//create a object for blowerMouth
+  blowerMouth = new BlowerMouth(width / 2+70, height/2+20, 100, 90);
 
   btn2 = createImg('click.png');
-  btn2.position(20,30);
-  btn2.size(50,50);
-  //add the mouseClicked option 
-  if (mouseClicked == btn2){
-    blow();
-  }
+btn2.position(20,30);
+btn2.size(50,50);
+//add the mouseClicked option 
+  btn2.mouseClicked(blow);
 }
  
 function draw() {
@@ -46,5 +44,5 @@ function draw() {
 
 function blow() {
   //add the applyforce
-  Matter.Body.applyForce(ball.body, { x:0, y:0 }, { x:0, y:0.05});
+  Matter.Body.applyForce(ball.body, { x:0, y:0}, {x:0, y:0.05});
 }
